@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes';
-import {baseUrl} from '../shared/baseUrl';
+import { baseUrl } from '../shared/baseUrl';
 
 export const fetchComments = () => (dispatch) => {
     return fetch(baseUrl + 'comments')
@@ -21,14 +21,14 @@ export const fetchComments = () => (dispatch) => {
     .catch(error => dispatch(commentsFailed(error.message)));
 };
 
-export const commentsFailed= (errmess) => ({
+export const commentsFailed = (errmess) => ({
     type: ActionTypes.COMMENTS_FAILED,
     payload: errmess
 });
 
 export const addComments = (comments) => ({
     type: ActionTypes.ADD_COMMENTS,
-    payload:comments
+    payload: comments
 });
 
 export const fetchDishes = () => (dispatch) => {
@@ -141,4 +141,3 @@ export const addLeaders = (leaders) => ({
     type: ActionTypes.ADD_LEADERS,
     payload: leaders
 });
- 
