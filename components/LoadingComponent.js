@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     loadingText: {
       color: '#512DA8',
       fontSize: 14,
-      fontWeight: 'bold'
+      fontWeight: 'bold'                                                                                                         
     }
 });
 
@@ -27,3 +27,5 @@ export const Loading = () => {
         </View>
     );
 };
+
+
