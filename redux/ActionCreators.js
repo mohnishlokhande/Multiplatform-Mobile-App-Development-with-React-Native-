@@ -172,3 +172,8 @@ export const postComment = (dishId, rating, author, comment) =>(dispatch) => {
     },2000);                                            //for 2sec time delay
 
 };
+
+export const deleteFavorite = (dishId) => ({
+    type:ActionTypes.DELETE_FAVORITE,
+    payload: dishId
+});

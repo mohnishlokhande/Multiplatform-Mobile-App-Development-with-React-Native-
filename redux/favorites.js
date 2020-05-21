@@ -7,6 +7,10 @@ export const favorites = (state = [], action) => {
                 return state;
             else
                 return state.concat(action.payload);                // concat will add the dish into the favorite
+
+        case ActionTypes.DELETE_FAVORITE:
+            return state.filter((favorite) => favorite !== action.payload);
+
         default:
             return state;
     }
