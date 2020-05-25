@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Text,View,ScrollView, StyleSheet, Picker,Switch,Button,Modal, Alert} from 'react-native';
-import {Card} from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import * as Animatable from 'react-native-animatable';
 import { Notifications} from 'expo';
@@ -79,6 +78,7 @@ class Reservation extends Component {
                sound: true
             },
             android: {
+                name: 'Confusion',
                 sound: true,
                 vibrate: true,
                 color: '#512DA8'
