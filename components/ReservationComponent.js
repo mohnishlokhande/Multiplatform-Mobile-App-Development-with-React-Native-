@@ -3,7 +3,8 @@ import {Text,View,ScrollView, StyleSheet, Picker,Switch,Button,Modal, Alert} fro
 import {Card} from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import * as Animatable from 'react-native-animatable';
-
+import { Notifications} from 'expo';
+import * as Permissions from 'expo-permissions';
 
 class Reservation extends Component {
     constructor(props){
@@ -36,8 +37,53 @@ class Reservation extends Component {
 
     handleReservation(){                                    // To reset the form after submit(or displayed in console)
         console.log(JSON.stringify(this.state));
-        this.toggleModal();
 
+        Alert.alert(
+            'Your Reservation OK?',
+            'Number of Guests: ' + this.state.guests + '\nSmoking? '+  this.state.smoking +'\nDate and Time: ' + this.state.date,
+            [
+                {
+                    text:'CANCEL',
+                    style:'cancel'
+                },
+                {
+                    text:'OK',
+                    onPress:() => {
+                        this.presentLocalNotification(this.state.date)
+                        this.resetForm()}
+                }
+            ],
+            { cancelable: false}
+        )
+        
+
+    }
+
+    async obtainNotificationPermission() {
+        let permission = await Permissions.getAsync(Permissions.USER_FACING_NOTIFICATIONS)
+        if ( permission.status !== 'granted'){
+            permission =await Permissions.askAsync(Permissions.USER_FACING_NOTIFICATIONS);
+            if (permission.status !== 'granted'){
+                Alert.alert('Permission not granted to show notifications');
+            }
+        }
+        return permission;
+    }
+
+    async presentLocalNotification(date) {
+        await this.obtainNotificationPermission();
+        Notifications.presentLocalNotificationAsync({
+            title: 'Your Reservation',
+            body: 'Reservation for ' + date + ' requested',
+            ios: {
+               sound: true
+            },
+            android: {
+                sound: true,
+                vibrate: true,
+                color: '#512DA8'
+            }
+        });
     }
 
     render(){
@@ -96,23 +142,7 @@ class Reservation extends Component {
                         <Button 
                             title='Reserve'
                             color='#512DA8'
-                            onPress={() => 
-                                Alert.alert(
-                                    'Your Reservation OK?',
-                                    'Number of Guests: ' + this.state.guests + '\nSmoking? '+  this.state.smoking +'\nDate and Time: ' + this.state.date,
-                                    [
-                                        {
-                                            text:'CANCEL',
-                                            style:'cancel'
-                                        },
-                                        {
-                                            text:'OK',
-                                            onPress:() => this.resetForm()
-                                        }
-                                    ],
-                                    { cancelable: false}
-                                )
-                            }
+                            onPress={() => this.handleReservation()}
                             accessibilityLabel='Learn more about this purple button'
                             />
                     </View>
