@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add expo-asset@~8.1.5
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @react-native-community/netinfo
 
 PATH: 
   C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\hp\AppData\Local\Programs\Python\Python37;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\MinGW\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hp\AppData\Local\Programs\Python\Python37;C:\Users\hp\AppData\Roaming\npm;C:\Users\hp\AppData\Local\Yarn\bin
@@ -29,6 +29,7 @@ npm manifest:
     "dependencies": {
       "@react-native-community/netinfo": "5.5.1",
       "expo": "~37.0.3",
+      "expo-asset": "~8.1.5",
       "expo-image-manipulator": "~8.1.0",
       "expo-image-picker": "~8.1.0",
       "expo-mail-composer": "~8.1.0",

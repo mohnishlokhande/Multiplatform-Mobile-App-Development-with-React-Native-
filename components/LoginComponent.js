@@ -170,7 +170,7 @@ class RegisterTab extends Component {
     };
 
     handleRegister() {
-        console.log(JSON.stringify(this.state));
+        console.log(JSON.stringify(this.state));   
         if (this.state.remember)
             SecureStore.setItemAsync(
                     'userinfo', 
